@@ -1,21 +1,21 @@
 <?php
-  function add (int $a, int $b) {
-    return $a + $b;
-  }
+function nav_item (string $lien, string $titre, string $linkClass = ''): string 
+{
+    $classe = 'nav-item';
+    if ($_SERVER['SCRIPT_NAME'] === $lien) {
+        $classe .= ' active';
+    }
+    return <<<HTML
+    <li class="$classe">
+        <a class="$linkClass" href="$lien">$titre</a>
+    </li>
+HTML;
+}
 
-  var_dump(add(5, 5));
-
-  // use of functions
-
-  $insults = ['damn', 'shit'];
-  $asterisk = [];
-
-  foreach ($insults as $insult) {
-    $asterisk[] = str_repeat('*', strlen($insult));
-  }
-
-  $paragraph = readline('Enter a paragraph: ');
-  $paragraph = str_replace($insults, $asterisk, $paragraph);
-
-  echo $paragraph;
+function nav_menu (string $linkClass = ''): string
+{
+    return 
+        nav_item('/index.php', 'Accueil', $linkClass) .
+        nav_item('/contact.php', 'Contact', $linkClass);
+}
 ?>
