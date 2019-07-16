@@ -1,4 +1,6 @@
 <?php
+// Create constante
+
 define('JOURS', [
     'Lundi',
     'Mardi',
