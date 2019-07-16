@@ -5,25 +5,25 @@ $a = 5;
 $b = 6;
 
 if ($a > $b) {
-  echo "a est plus grand que b";
+  echo 'a est plus grand que b';
 } elseif ($a == $b) {
-  echo "a est égal à b";
+  echo 'a est égal à b';
 } else {
-  echo "a est plus petit que b";
+  echo 'a est plus petit que b';
 }
 
 // Have fun with this variable :
-$i = 0
+$i = 0;
 
 switch ($i) {
   case 0:
-      echo "i égal 0";
-      break;
+    echo "\n" . 'i égal 0';
+    break;
   case 1:
-      echo "i égal 1";
-      break;
+    echo "\n" . 'i égal 1';
+    break;
   case 2:
-      echo "i égal 2";
-      break;
+    echo "\n" . 'i égal 2';
+    break;
 }
 ?>
