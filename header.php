@@ -1,6 +1,7 @@
 <?php 
-require_once 'functions.php'; 
-?><!doctype html>
+  require_once 'functions.php'; 
+?>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,19 +11,16 @@ require_once 'functions.php';
     <link rel="icon" href="../../../../favicon.ico">
 
     <title>
-        <?php if (isset($title)): ?>
-            <?= $title ?>
-        <?php else: ?>
-            Mon site
-        <?php endif ?>
+      <?php if (isset($title)): ?>
+          <?= $title ?>
+      <?php else: ?>
+          Mon site
+      <?php endif ?>
     </title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
   </head>
 
   <body>
-
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="#">Mon site</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

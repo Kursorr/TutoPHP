@@ -1,6 +1,6 @@
 <?php 
-$title = "Page d'accueil";
-require 'header.php'; 
+  $title = "Page d'accueil";
+  require 'header.php'; 
 ?>
 
 <div class="starter-template">
@@ -9,5 +9,3 @@ require 'header.php';
 </div>
 
 <?php require 'footer.php'; ?>
-
-
