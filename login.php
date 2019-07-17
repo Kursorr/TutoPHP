@@ -1,7 +1,8 @@
 <?php
 $erreur = null;
+$password = '$2y$12$hPI.sVN03MUi6RnjuXuTQ.PZVEBl3ulsGZI.RE5i03UQ.Hm8t0Cl6';
 if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse'])) {
-    if ($_POST['pseudo'] === 'John' && $_POST['motdepasse'] === 'Doe') {
+    if ($_POST['pseudo'] === 'John' && password_verify($_POST['motdepasse'], $password)) {
         session_start();
         $_SESSION['connecte'] = 1;
         header('Location: /dashboard.php');
