@@ -1,7 +1,10 @@
 <?php 
-  require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions.php'; 
-?>
-<!doctype html>
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions.php'; 
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'functions' . DIRECTORY_SEPARATOR . 'auth.php'; 
+?><!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -33,6 +36,11 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <?= nav_menu('nav-link') ?>
+        </ul>
+        <ul class="navbar-nav">
+          <?php if (est_connecte()): ?>
+            <li class="nav-item"><a href="/logout.php" class="nav-link">Se déconnecter</a></li>
+          <?php endif ?>
         </ul>
       </div>
     </nav>
