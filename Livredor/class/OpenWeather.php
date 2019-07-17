@@ -1,4 +1,7 @@
 <?php
+require_once 'CurlException.php';
+require_once 'HTTPException.php';
+require_once 'UnauthorizedHTTPException.php';
 class OpenWeather {
 
     private $apiKey;
@@ -40,9 +43,19 @@ class OpenWeather {
             CURLOPT_TIMEOUT => 1
         ]);
         $data = curl_exec($curl);
-        if ($data === false || curl_getinfo($curl, CURLINFO_HTTP_CODE) !== 200) {
-            return null;
+        if ($data === false) {
+            throw new CurlException($curl);
         }
+        $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        if ($code !== 200) {
+            curl_close($curl);
+            if ($code === 401) {
+                $data = json_decode($data, true);
+                throw new UnauthorizedHTTPException($data['message'], 401);
+            }
+            throw new HTTPException($data, $code);
+        }
+        curl_close($curl);
         return json_decode($data, true);
     }
 
